@@ -1,0 +1,26 @@
+defaults:
+  - _self_
+  - runner: train_and_test
+  - dataset: tennis
+  - model: wasb
+  - dataloader: default
+  - detector: tracknetv2
+  - transform: default
+  - tracker: online
+  - optimizer: adam_multistep
+  - loss: hm_wbce
+
+# Enable training data loading
+dataloader:
+  train: true
+
+# Fine-tuning: lower learning rate to avoid overwriting pre-trained weights
+optimizer:
+  learning_rate: 0.00001
+
+hydra:
+  run:
+    dir: /root/outputs/${hydra.job.name}/${now:%Y-%m-%d_%H-%M-%S}
+
+output_dir: # if null, Hydra uses hydra.run.dir (set above)
+seed: 1234

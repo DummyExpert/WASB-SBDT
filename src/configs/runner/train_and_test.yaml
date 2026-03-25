@@ -1,0 +1,19 @@
+name: train
+device: cuda
+gpus: [0]
+max_epochs: 50
+best_model_name: best_model.pth.tar
+test:
+  run: false
+  epoch_start: 0
+  epoch_step: 5
+  run_before_train: false
+  run_after_train_with_best: false
+inference_video:
+  run: false
+  epoch_start: 0
+  epoch_step: 5
+  run_before_train: false
+  run_after_train_with_best: false
+find_fp1_epochs: []
+fp1_filename: # only required when find_fp1_epochs is non-empty
