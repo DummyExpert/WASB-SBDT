@@ -7,7 +7,7 @@ defaults:
   - detector: tracknetv2
   - transform: default
   - tracker: online
-  - optimizer: adam_multistep
+  - optimizer: constant          #adam_multistep
   - loss: hm_wbce
 
 # Enable training data loading
